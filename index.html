@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>護理人員招募表單</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chiron+Hei+HK:wght@400;500;700&family=Chiron+Sung+HK:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F6F3EC;
+    --ink: #24302E;
+    --pine: #1F5C56;
+    --pine-soft: #E8EFEC;
+    --clay: #C9663F;
+    --clay-soft: #F3E3DA;
+    --line: #D9D3C4;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 32px 20px 80px;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Chiron Hei HK", "PingFang TC", "Microsoft JhengHei", sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  h1 {
+    font-family: "Chiron Sung HK", "Georgia", serif;
+    font-weight: 700;
+    font-size: 26px;
+    color: var(--pine);
+    max-width: 520px;
+    margin: 0 auto 6px;
+  }
+
+  .logo {
+    display: block;
+    max-width: 160px;
+    height: auto;
+    margin: 0 auto 12px;
+  }
+
+  .org-label {
+    max-width: 520px;
+    margin: 0 auto 8px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: #5B6864;
+  }
+
+  .subtitle {
+    max-width: 520px;
+    margin: 0 auto 32px;
+    color: #5B6864;
+    font-size: 14px;
+  }
+
+  form {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  section {
+    background: #FFFFFF;
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--pine);
+    border-radius: 4px;
+    padding: 22px 22px 6px;
+    margin-bottom: 20px;
+  }
+
+  section.accent {
+    border-left-color: var(--clay);
+  }
+
+  h2 {
+    font-family: "Chiron Sung HK", "Georgia", serif;
+    font-size: 17px;
+    font-weight: 700;
+    margin: 0 0 18px;
+    color: var(--pine);
+  }
+
+  section.accent h2 {
+    color: var(--clay);
+  }
+
+  .field {
+    margin-bottom: 18px;
+  }
+
+  label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: #3D4A47;
+  }
+
+  input[type="text"],
+  input[type="tel"],
+  input[type="email"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: inherit;
+    font-size: 15px;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: 2px solid var(--pine);
+    outline-offset: 1px;
+    background: #FFFFFF;
+  }
+
+  .choice-group {
+    font-size: 14px;
+    font-weight: 500;
+    color: #3D4A47;
+    margin-bottom: 8px;
+  }
+
+  .choice-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+
+  .choice-list label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 400;
+    font-size: 14px;
+    background: var(--pine-soft);
+    border: 1px solid transparent;
+    border-radius: 20px;
+    padding: 7px 14px 7px 10px;
+    margin: 0;
+    cursor: pointer;
+  }
+
+  section.accent .choice-list label {
+    background: var(--clay-soft);
+  }
+
+  .choice-list input {
+    accent-color: var(--pine);
+    width: 16px;
+    height: 16px;
+    margin: 0;
+  }
+
+  section.accent .choice-list input {
+    accent-color: var(--clay);
+  }
+
+  button {
+    display: block;
+    width: 100%;
+    max-width: 520px;
+    margin: 8px auto 0;
+    padding: 14px;
+    background: var(--pine);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: #17453F;
+  }
+
+  button:focus-visible {
+    outline: 3px solid var(--clay);
+    outline-offset: 2px;
+  }
+</style>
+</head>
+<body>
+
+  <img src="logo.png" alt="奇美醫療財團法人柳營奇美醫院" class="logo">
+  <p class="org-label">奇美醫療財團法人柳營奇美醫院</p>
+  <h1>護理人員專長招募表單</h1>
+  <p class="subtitle">請填寫以下資料,協助我們建立同仁專長人力資料庫。</p>
+
+  <form id="recruitForm">
+
+    <section>
+      <h2>基本資料</h2>
+
+      <div class="field">
+        <label for="unit">單位</label>
+        <input type="text" id="unit" name="unit" required>
+      </div>
+
+      <div class="field">
+        <label for="staffId">人事號</label>
+        <input type="text" id="staffId" name="staffId" pattern="[A-Za-z0-9]+" title="請輸入英文字母或數字" required>
+      </div>
+
+      <div class="field">
+        <label for="name">姓名</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+
+      <div class="field">
+        <label for="phone">聯絡電話</label>
+        <input type="tel" id="phone" name="phone" required>
+      </div>
+
+      <div class="field">
+        <label for="email">電子信箱</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+    </section>
+
+    <section>
+      <h2>學歷</h2>
+      <div class="field">
+        <label for="education">最高學歷</label>
+        <select id="education" name="education" required>
+          <option value="" selected disabled>請選擇</option>
+          <option value="高中">高中</option>
+          <option value="專科">專科</option>
+          <option value="大學">大學</option>
+          <option value="碩士以上">碩士以上</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="accent">
+      <h2>專業服務專長</h2>
+
+      <div class="choice-group">人力招募</div>
+      <div class="choice-list">
+        <label><input type="checkbox" name="proSkill" value="招募活動設計">招募活動設計</label>
+        <label><input type="checkbox" name="proSkill" value="招募影片剪輯">招募影片剪輯</label>
+      </div>
+
+      <div class="choice-group">人力留任</div>
+      <div class="choice-list">
+        <label><input type="checkbox" name="proSkill" value="心理關懷與諮商">心理關懷與諮商</label>
+      </div>
+
+      <div class="choice-group">專案與品質管理人力</div>
+      <div class="choice-list">
+        <label><input type="checkbox" name="proSkill" value="護理專案輔導">護理專案輔導</label>
+        <label><input type="checkbox" name="proSkill" value="期刊撰寫輔導">期刊撰寫輔導</label>
+        <label><input type="checkbox" name="proSkill" value="實證護理輔導">實證護理輔導</label>
+        <label><input type="checkbox" name="proSkill" value="QCC輔導">QCC輔導</label>
+        <label><input type="checkbox" name="proSkill" value="SDM輔導">SDM輔導</label>
+      </div>
+
+      <div class="choice-group">團隊領導</div>
+      <div class="choice-list">
+        <label><input type="checkbox" name="proSkill" value="流程規劃">流程規劃</label>
+        <label><input type="checkbox" name="proSkill" value="活動現場帶組">活動現場帶組</label>
+        <label><input type="checkbox" name="proSkill" value="活動主持">活動主持</label>
+      </div>
+    </section>
+
+    <section class="accent">
+      <h2>才藝專長</h2>
+
+      <div class="choice-group">活動類</div>
+      <div class="choice-list">
+        <label><input type="checkbox" name="talentType" value="場佈">場佈</label>
+        <label><input type="checkbox" name="talentType" value="團康">團康</label>
+      </div>
+
+      <div class="choice-group">表演類</div>
+      <div class="choice-list">
+        <label><input type="checkbox" name="talentType" value="唱歌">唱歌</label>
+        <label><input type="checkbox" name="talentType" value="舞蹈">舞蹈</label>
+        <label><input type="checkbox" name="talentType" value="樂器演奏">樂器演奏</label>
+      </div>
+
+      <div class="choice-group">設計產出類</div>
+      <div class="choice-list">
+        <label><input type="checkbox" name="talentType" value="拍照">拍照</label>
+        <label><input type="checkbox" name="talentType" value="攝影">攝影</label>
+        <label><input type="checkbox" name="talentType" value="影片製作">影片製作</label>
+        <label><input type="checkbox" name="talentType" value="圖文設計">圖文設計</label>
+        <label><input type="checkbox" name="talentType" value="繪畫">繪畫</label>
+      </div>
+
+      <div class="choice-group">靜態類</div>
+      <div class="choice-list">
+        <label><input type="checkbox" name="talentType" value="園藝">園藝</label>
+        <label><input type="checkbox" name="talentType" value="手作小物">手作小物</label>
+        <label><input type="checkbox" name="talentType" value="烘焙">烘焙</label>
+        <label><input type="checkbox" name="talentType" value="精油調製">精油調製</label>
+      </div>
+
+      <div class="choice-group">語言類</div>
+      <div class="choice-list">
+        <label><input type="checkbox" name="talentType" value="日語">日語</label>
+        <label><input type="checkbox" name="talentType" value="英語">英語</label>
+        <label><input type="checkbox" name="talentType" value="韓語">韓語</label>
+        <label><input type="checkbox" name="talentType" value="手語">手語</label>
+      </div>
+
+      <div class="choice-group">動態運動類</div>
+      <div class="choice-list">
+        <label><input type="checkbox" name="talentType" value="羽球">羽球</label>
+        <label><input type="checkbox" name="talentType" value="游泳">游泳</label>
+        <label><input type="checkbox" name="talentType" value="登山">登山</label>
+        <label><input type="checkbox" name="talentType" value="滑板">滑板</label>
+      </div>
+
+      <div class="choice-group">美感類</div>
+      <div class="choice-list">
+        <label><input type="checkbox" name="talentType" value="化妝">化妝</label>
+        <label><input type="checkbox" name="talentType" value="彩妝">彩妝</label>
+        <label><input type="checkbox" name="talentType" value="髮型造型">髮型造型</label>
+        <label><input type="checkbox" name="talentType" value="美甲">美甲</label>
+      </div>
+
+      <div class="field">
+        <label for="talentDetail">專長細節說明</label>
+        <textarea id="talentDetail" name="talentDetail" rows="3"></textarea>
+      </div>
+
+      <div class="choice-group">專長程度</div>
+      <div class="choice-list">
+        <label><input type="radio" name="talentLevel" value="興趣愛好">興趣愛好</label>
+        <label><input type="radio" name="talentLevel" value="有表演經驗">有表演經驗</label>
+        <label><input type="radio" name="talentLevel" value="專業級">專業級</label>
+      </div>
+    </section>
+
+    <section class="accent">
+      <h2>支援活動意願</h2>
+
+      <div class="choice-group">支援意願</div>
+      <div class="choice-list">
+        <label><input type="radio" name="willingness" value="樂意支援">樂意支援</label>
+        <label><input type="radio" name="willingness" value="需徵詢當下意願">需徵詢當下意願</label>
+        <label><input type="radio" name="willingness" value="僅特定場合">僅特定場合</label>
+      </div>
+
+      <div class="choice-group">可配合時段(可複選)</div>
+      <div class="choice-list">
+        <label><input type="checkbox" name="availableTime" value="平日白天">平日白天</label>
+        <label><input type="checkbox" name="availableTime" value="平日晚上">平日晚上</label>
+        <label><input type="checkbox" name="availableTime" value="假日">假日</label>
+        <label><input type="checkbox" name="availableTime" value="依班表彈性調整">依班表彈性調整</label>
+      </div>
+    </section>
+
+    <button type="submit" id="submitBtn">送出表單</button>
+
+  </form>
+
+  <p id="statusMsg" style="max-width:520px;margin:16px auto 0;font-size:14px;"></p>
+
+  <script>
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycby1G8J_dUAgppXfhHGZF80qkjIdqzyg5t4I0lo4AdxFRFlnyU56NMbhVczsQ25lu1NdCA/exec";
+
+    const form = document.getElementById("recruitForm");
+    const statusMsg = document.getElementById("statusMsg");
+    const submitBtn = document.getElementById("submitBtn");
+
+    // 這幾個欄位是複選(checkbox),要收集成陣列
+    const multiFields = ["proSkill", "talentType", "availableTime"];
+    // 這些是單一值欄位(文字/下拉/單選)
+    const singleFields = ["unit", "staffId", "name", "phone", "email", "education", "talentDetail", "talentLevel", "willingness"];
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      // 防止重複點擊送出兩次
+      submitBtn.disabled = true;
+      submitBtn.textContent = "送出中...";
+      statusMsg.textContent = "";
+
+      const formData = new FormData(form);
+      const data = {};
+
+      multiFields.forEach(function (field) {
+        data[field] = formData.getAll(field);
+      });
+
+      singleFields.forEach(function (field) {
+        data[field] = formData.get(field) || "";
+      });
+
+      fetch(SCRIPT_URL, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(data)
+      })
+        .then(function (res) {
+          return res.json();
+        })
+        .then(function (json) {
+          if (json.result === "success") {
+            window.location.href = "thankyou.html";
+          } else if (json.result === "duplicate") {
+            statusMsg.textContent = "這個人事號已經填寫過了,如需修改請聯繫護理部承辦人員黃子芮(分機 73016)。";
+            submitBtn.disabled = false;
+            submitBtn.textContent = "送出表單";
+          } else {
+            statusMsg.textContent = "送出時發生問題,請稍後再試或聯繫護理部承辦人員黃子芮(分機 73016)。";
+            submitBtn.disabled = false;
+            submitBtn.textContent = "送出表單";
+          }
+        })
+        .catch(function () {
+          statusMsg.textContent = "送出時發生問題,請稍後再試或聯繫護理部承辦人員黃子芮(分機 73016)。";
+          submitBtn.disabled = false;
+          submitBtn.textContent = "送出表單";
+        });
+    });
+  </script>
+
+</body>
+</html>
